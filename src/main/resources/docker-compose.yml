@@ -1,0 +1,15 @@
+version: "4"
+services:
+  pslmongodb:
+    image: mongo:latest
+    container_name: "pslmongodb"
+    restart: always
+    ports:
+      - 27017:27017
+  sb-reactive-mongo:
+    image: sb-reactive-mongo:1.0
+    container_name: sb-reactive-mongo
+    ports:
+      - 8080:8080
+    links:
+      - pslmongodb
